@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LA RUTA 100% | Clan Oficial</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+body{background:black;color:white;overflow-x:hidden}
+
+/* LUCES CINEMATIC */
+.light,.light2{
+position:fixed;width:700px;height:700px;
+filter:blur(280px);opacity:.18;z-index:-2;
+}
+.light{background:red;animation:moveLight 20s infinite alternate}
+.light2{background:#ff0033;right:0;bottom:0;animation:moveLight2 25s infinite alternate}
+
+@keyframes moveLight{0%{top:-300px;left:-300px}100%{top:200px;left:300px}}
+@keyframes moveLight2{0%{bottom:-300px;right:-300px}100%{bottom:200px;right:300px}}
+
+/* HERO */
+.hero{
+padding:100px 20px 40px;
+text-align:center;
+}
+.hero h1{
+font-size:4rem;font-weight:900;
+}
+.hero p{
+opacity:.6;margin-top:10px;
+}
+
+/* BOTONES */
+.btns{
+margin-top:20px;
+display:flex;gap:12px;justify-content:center;flex-wrap:wrap
+}
+button{
+padding:10px 26px;border:none;border-radius:30px;
+background:white;color:black;font-weight:600;
+cursor:pointer;transition:.25s;
+}
+button:hover{background:red;color:white;transform:scale(1.05)}
+
+/* VIDEO HERO */
+.video-box{
+width:100%;display:flex;justify-content:center;margin-top:40px;
+}
+.video-box video{
+width:90%;max-width:900px;border-radius:20px;
+box-shadow:0 0 40px rgba(255,0,0,.3);
+}
+
+/* SECCIONES */
+section{padding:60px 8%}
+
+/* ADMINS GRID */
+.admins{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+margin-top:40px;
+}
+.admin-card{
+text-align:center;position:relative;
+animation:float 6s infinite ease-in-out;
+}
+.admin-card img{
+width:100%;max-width:220px;
+filter:drop-shadow(0 0 30px red);
+}
+.admin-card::after{
+content:"";position:absolute;left:50%;transform:translateX(-50%);
+bottom:-15px;width:140px;height:20px;
+background:red;filter:blur(30px);opacity:.5;
+}
+.admin-card h3{margin-top:10px;font-weight:700}
+.admin-card p{font-size:.85rem;opacity:.6;margin-top:5px}
+
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-12px)}100%{transform:translateY(0)}}
+
+/* CHAT */
+.chat{
+margin-top:40px;background:#050505;padding:15px;
+border-radius:15px;font-family:monospace;
+height:160px;overflow:auto;border:1px solid #222;
+}
+
+/* FOOTER */
+footer{text-align:center;padding:20px;opacity:.4}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+.hero h1{font-size:2.6rem}
+.admin-card img{max-width:160px}
+.video-box video{width:100%}
+}
+</style>
+</head>
+
+<body>
+
+<div class="light"></div>
+<div class="light2"></div>
+
+<audio autoplay loop>
+<source src="music.mp3">
+</audio>
+
+<!-- HERO -->
+<div class="hero">
+<h1>LA RUTA 100%</h1>
+<p>Clan oficial de Roblox. Dominio, respeto y fiesta con estilo profesional.</p>
+
+<div class="btns">
+<button onclick="copyTag()">TAG CLAN</button>
+<button onclick="location.href='reglas.html'">REGLAS</button>
+<button onclick="location.href='historia.html'">HISTORIA</button>
+<button onclick="location.href='vip.html'">VIP</button>
+</div>
+
+<div class="video-box">
+<video src="video.mp4" autoplay muted loop controls></video>
+</div>
+</div>
+
+<!-- ADMINS -->
+<section>
+<h2>👑 Administradores</h2>
+
+<div class="admins">
+
+<div class="admin-card">
+<img src="admin1.png">
+<h3>LIDERLIANG_LARUTA</h3>
+<p>Batman no puede revelar esa información.</p>
+</div>
+
+<div class="admin-card">
+<img src="admin2.png">
+<h3>Vale_LARUTA</h3>
+<p>Inteligente, auténtica, impecable y fuera de tu alcance.</p>
+</div>
+
+<div class="admin-card">
+<img src="admin3.png">
+<h3>Apio_LARUTA</h3>
+<p>Programador, Editor, Filmaker, playboy, filántropo.</p>
+</div>
+
+<div class="admin-card">
+<img src="admin4.png">
+<h3>Catita_LARUTA</h3>
+<p>Paz mental y un toque de luz.</p>
+</div>
+
+<div class="admin-card">
+<img src="admin5.png">
+<h3>russellxzpty_LARUTA</h3>
+<p>Experto en física cuántica y en quemar el arroz.</p>
+</div>
+
+<div class="admin-card">
+<img src="admin6.png">
+<h3>Johe_LARUTA</h3>
+<p>24 años, soltero y disponible para varias.</p>
+</div>
+
+<div class="admin-card">
+<img src="admin7.png">
+<h3>BabyARC_LARUTA</h3>
+<p>Un peligro público con internet y café ilimitado.</p>
+</div>
+
+<div class="admin-card">
+<img src="admin8.png">
+<h3>Daviid_LARUTA</h3>
+<p>Dice que está soltero, pero Johe le da lo que le gusta.</p>
+</div>
+
+<div class="admin-card">
+<img src="admin9.png">
+<h3>Solange_LARUTA</h3>
+<p>Bandida retirada solo de uno 1️⃣</p>
+</div>
+
+</div>
+
+<h2 style="margin-top:60px">💬 Clan Terminal</h2>
+<div class="chat" id="chat"></div>
+</section>
+
+<footer>LA RUTA 100% © 2026</footer>
+
+<script>
+// COPIAR TAG
+function copyTag(){
+navigator.clipboard.writeText("_LARUTA");
+alert("TAG copiado");
+}
+
+// CHAT FAKE
+const chat=document.getElementById("chat");
+const msgs=[
+"Connecting LA RUTA server...",
+"LIDERLIANG online",
+"Vale online",
+"Apio online",
+"Catita online",
+"Russell online",
+"Johe online",
+"BabyARC online",
+"Party Mode Activated 🔥"
+];
+let i=0;
+setInterval(()=>{
+chat.innerHTML+=msgs[i]+"<br>";
+chat.scrollTop=9999;
+i=(i+1)%msgs.length;
+},1100);
+</script>
+
+</body>
+</html>

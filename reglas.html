@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reglamento - LA RUTA 100%</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Montserrat}
+body{background:black;color:white;overflow-x:hidden}
+
+/* VIDEO CINEMÁTICO */
+video.bg{
+position:fixed;top:0;left:0;
+width:100%;height:100%;
+object-fit:cover;z-index:-3;
+filter:brightness(.25) saturate(1.2);
+}
+
+/* OVERLAY */
+.overlay{
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:linear-gradient(180deg,black,rgba(0,0,0,.5),black);
+z-index:-2;
+}
+
+/* PARTÍCULAS */
+canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+
+/* BOTÓN */
+.back{
+position:fixed;top:20px;left:20px;
+padding:10px 22px;border:none;border-radius:30px;
+background:red;color:white;font-weight:600;
+cursor:pointer;z-index:999;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+.hero h1{
+font-size:4rem;font-weight:900;letter-spacing:3px;
+}
+.hero span{color:red}
+.hero p{opacity:.6;font-size:1.2rem;margin-top:10px}
+
+/* GLASS CONTAINER */
+.rules{
+max-width:1000px;
+margin:100px auto;
+padding:30px;
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(20px);
+border-radius:25px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+/* REGLA BLOQUE */
+.rule{
+margin-bottom:35px;
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+.rule.show{
+opacity:1;transform:translateY(0);
+}
+.rule h2{
+color:red;font-size:1.4rem;margin-bottom:10px;
+}
+.rule p, .rule li{
+opacity:.8;line-height:1.6;
+}
+
+/* LISTA */
+ul{margin-left:20px}
+
+/* WARNING */
+.warning{
+margin-top:30px;
+padding:20px;
+border:1px solid gold;
+border-radius:15px;
+background:rgba(255,215,0,0.05);
+color:gold;font-weight:600;
+}
+
+/* FOOTER */
+.final{
+text-align:center;font-size:1.5rem;font-weight:700;
+margin:120px 20px 60px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.hero h1{font-size:2.5rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO -->
+<video class="bg" autoplay loop muted>
+<source src="video.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+<canvas id="particles"></canvas>
+
+<button class="back" onclick="history.back()">⬅ Volver</button>
+
+<!-- HERO -->
+<div class="hero">
+<h1>REGLAMENTO <span>LA RUTA</span></h1>
+<p>Normas oficiales del clan</p>
+</div>
+
+<!-- REGLAS -->
+<div class="rules">
+
+<div class="rule">
+<h2>01 — Respeto y Convivencia</h2>
+<p>🚫 Prohibido escribir a mujeres del clan sin consentimiento.</p>
+<p>🔒 Lo que pasa en el clan se queda en el clan.</p>
+<p>📢 Si alguien se siente incómodo, reportar a los admins.</p>
+</div>
+
+<div class="rule">
+<h2>02 — Organización de Chats</h2>
+<ul>
+<li>💬 Chat General — hablar y parchar.</li>
+<li>📢 Avisos — solo admins.</li>
+<li>💗 Lobitas VIP — solo mujeres.</li>
+<li>🖤 Alfas VIP — solo hombres.</li>
+</ul>
+</div>
+
+<div class="rule">
+<h2>03 — Identidad del Clan</h2>
+<p>🏷️ Tag obligatorio: Nombre(_LARUTA)</p>
+<p>🔴 Skin roja oficial del clan.</p>
+<p>💰 Apoyo Robux solo con tag puesto.</p>
+</div>
+
+<div class="rule">
+<h2>04 — Ingreso de Nuevos Miembros</h2>
+<ul>
+<li>📸 Foto real</li>
+<li>📛 Nombre y edad</li>
+<li>🎮 Usuario Roblox</li>
+</ul>
+</div>
+
+<div class="warning rule">
+⚠ No permitiremos que el clan tenga mala fama.  
+Aquí venimos a jugar, respetar y dominar.
+</div>
+
+</div>
+
+<div class="final">
+🔥 Orden • Respeto • Dominio • LA RUTA 100%
+</div>
+
+<script>
+// SCROLL ANIMATION
+const rules=document.querySelectorAll(".rule");
+const obs=new IntersectionObserver(e=>{
+e.forEach(x=>{
+if(x.isIntersecting)x.target.classList.add("show");
+});
+},{threshold:.2});
+rules.forEach(r=>obs.observe(r));
+
+// PARTÍCULAS PREMIUM
+const c=document.getElementById("particles");
+const ctx=c.getContext("2d");
+c.width=innerWidth;c.height=innerHeight;
+let p=[];
+for(let i=0;i<120;i++){
+p.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+0.5,dx:(Math.random()-.5)*0.2,dy:(Math.random()-.5)*0.2});
+}
+function draw(){
+ctx.clearRect(0,0,c.width,c.height);
+p.forEach(a=>{
+a.x+=a.dx;a.y+=a.dy;
+if(a.x<0)a.x=c.width;if(a.x>c.width)a.x=0;
+if(a.y<0)a.y=c.height;if(a.y>c.height)a.y=0;
+ctx.beginPath();
+ctx.arc(a.x,a.y,a.r,0,Math.PI*2);
+ctx.fillStyle="rgba(255,255,255,0.12)";
+ctx.fill();
+});
+requestAnimationFrame(draw);
+}
+draw();
+onresize=()=>{c.width=innerWidth;c.height=innerHeight};
+</script>
+
+</body>
+</html>
