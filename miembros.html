@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miembros - LA RUTA 100%</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+body{background:black;color:white;overflow-x:hidden}
+
+/* LUCES VERDES */
+.light,.light2{
+position:fixed;width:700px;height:700px;
+filter:blur(280px);opacity:.18;z-index:-2;
+}
+.light{background:#00ff66;animation:moveLight 20s infinite alternate}
+.light2{background:#00ffaa;right:0;bottom:0;animation:moveLight2 25s infinite alternate}
+
+@keyframes moveLight{0%{top:-300px;left:-300px}100%{top:200px;left:300px}}
+@keyframes moveLight2{0%{bottom:-300px;right:-300px}100%{bottom:200px;right:300px}}
+
+/* HERO */
+.hero{
+padding:80px 20px 30px;
+text-align:center;
+}
+.hero h1{
+font-size:3.8rem;font-weight:900;
+color:#00ff66;
+}
+.hero p{opacity:.6;margin-top:10px}
+
+/* BOTÓN VOLVER */
+.back{
+position:fixed;top:20px;left:20px;
+padding:10px 22px;border:none;border-radius:30px;
+background:#00ff66;color:black;font-weight:700;
+cursor:pointer;z-index:999;
+}
+
+/* GRID MIEMBROS */
+.members{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+padding:60px 8%;
+}
+.member-card{
+text-align:center;position:relative;
+animation:float 6s infinite ease-in-out;
+}
+.member-card img{
+width:100%;max-width:220px;
+filter:drop-shadow(0 0 30px #00ff66);
+}
+.member-card::after{
+content:"";position:absolute;left:50%;transform:translateX(-50%);
+bottom:-15px;width:140px;height:20px;
+background:#00ff66;filter:blur(30px);opacity:.6;
+}
+.member-card h3{margin-top:10px;font-weight:700}
+.member-card p{font-size:.85rem;opacity:.6;margin-top:5px}
+
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-12px)}100%{transform:translateY(0)}}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+.hero h1{font-size:2.5rem}
+.member-card img{max-width:160px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="light"></div>
+<div class="light2"></div>
+
+<button class="back" onclick="history.back()">⬅ Volver</button>
+
+<!-- HERO -->
+<div class="hero">
+<h1>MIEMBROS LA RUTA</h1>
+<p>Soldados oficiales del clan. Aura verde = sangre nueva.</p>
+</div>
+
+<!-- MIEMBROS GRID -->
+<div class="members">
+
+<!-- COPIA DESDE AQUÍ PARA AGREGAR MÁS -->
+
+<div class="member-card">
+<img src="miembro1.png">
+<h3>Dari_LARUTA</h3>
+<p></p>
+</div>
+
+<div class="member-card">
+<img src="miembro2.png">
+<h3>JanyDescent_LARUTA</h3>
+<p></p>
+</div>
+
+<div class="member-card">
+<img src="miembro3.png">
+<h3>Gomory_LARUTA</h3>
+<p></p>
+</div>
+
+<!-- COPIA HASTA AQUÍ -->
+
+</div>
+
+<footer style="text-align:center;opacity:.4;padding:20px">LA RUTA 100% © 2026</footer>
+
+</body>
+</html>
